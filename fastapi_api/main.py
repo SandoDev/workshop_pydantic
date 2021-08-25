@@ -1,11 +1,10 @@
 from fastapi import FastAPI
+from .app.api.urls import urls
 
-app = FastAPI()
+app = FastAPI(
+    title="FastAPI Docs",
+    redoc_url="/docs/redoc",
+    docs_url='/docs/swagger',
+)
 
-
-@app.get("/")
-async def root():
-    """
-    Root of host
-    """
-    return {"message": "FastAPI test"}
+app.include_router(urls)
