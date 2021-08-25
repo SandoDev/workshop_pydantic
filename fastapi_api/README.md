@@ -2,5 +2,5 @@
 
 ## Run Project
 ```
-uvicorn fastapi.main:app --reload
+uvicorn fastapi_api.main:app --reload
 ```
