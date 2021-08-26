@@ -15,10 +15,16 @@ class MetaSerializer(BaseModel):
     message: str
 
 
+class AdditionalSerializer(BaseModel):
+    name: str
+    others: Optional[dict]
+
+
 class TuningSerializer(BaseModel):
     location: str
     costo: float
     color: Optional[Color]
+    additional: Optional[AdditionalSerializer]
 
 
 class WheelsSerializers(BaseModel):
@@ -60,6 +66,7 @@ class CarSerializer(BaseModel):
     color: Optional[ColorEnum]
 
     # diccionario dinamico
+    # profundamente aninada
     tuning: Optional[Dict[str, TuningSerializer]]
 
     # Validadores de campo especificos

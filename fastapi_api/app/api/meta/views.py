@@ -3,8 +3,6 @@ from serializers.serializers import MetaSerializer
 
 router = APIRouter()
 
-# TODO agregar meta serializers
-
 
 @router.get(
     "/",

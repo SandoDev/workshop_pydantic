@@ -5,8 +5,8 @@ router = APIRouter()
 
 
 @router.post("/create/car", tags=["API"])
-def root(car: CarSerializer):
-    """
-    Root of host
-    """
+def create_car(car: CarSerializer):
+    # TODO guardar en db
     return car
+
+# TODO Serializador del path, del query, del response
