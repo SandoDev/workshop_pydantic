@@ -1,15 +1,12 @@
 from fastapi import APIRouter
-
+from serializers.serializers import CarSerializer
 
 router = APIRouter()
 
 
-@router.get("/asdf", tags=["API"])
-def root():
+@router.post("/create/car", tags=["API"])
+def root(car: CarSerializer):
     """
     Root of host
     """
-    output = {
-        'message': 'FastAPI API'
-    }
-    return output
+    return car
