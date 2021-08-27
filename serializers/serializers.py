@@ -117,3 +117,11 @@ class CarSerializer(BaseModel):
                 }
             }
         }
+
+
+class ResponseSerializerCar(BaseModel):
+    status: bool
+    message: str
+    data: List[CarSerializer] = Field(
+        description="returns a list of cart objects"
+    )
