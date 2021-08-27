@@ -1,5 +1,7 @@
 # Serializers with Pydantic
 
+See docs [here](https://hackmd.io/@K-oQ-22URP2iYGM5Nk7o1w/HkiIJGl-F)
+
 ## Run project
 
 1. Create venv
