@@ -26,19 +26,23 @@ class TuningSerializer(BaseModel):
     color: Optional[Color]
     additional: Optional[AdditionalSerializer]
 
+    @validator('color')
+    def specific_name(cls, v):
+        return v.original()
+
 
 class WheelsSerializers(BaseModel):
     size: int
     mark: str
     rubber_gauge: Optional[str]
 
-    # class Config:
-    #     @staticmethod
-    #     def schema_extra(
-    #             schema: Dict[str, Any],
-    #             model: Type['WheelsSerializers']) -> None:
-    #         for prop in schema.get('properties', {}).values():
-    #             prop.pop('title', None)
+    class Config:
+        @staticmethod
+        def schema_extra(
+                schema: Dict[str, Any],
+                model: Type['WheelsSerializers']) -> None:
+            for prop in schema.get('properties', {}).values():
+                prop.pop('title', None)
 
 
 class CarSerializer(BaseModel):

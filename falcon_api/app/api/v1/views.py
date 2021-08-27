@@ -2,6 +2,7 @@ import falcon
 from spectree import Response
 from spectree import SpecTree
 from serializers.serializers import MetaSerializer, CarSerializer
+from core.handler import CarHandler
 
 api = SpecTree(
     "falcon",
@@ -55,9 +56,9 @@ class APIViews:
     )
     def on_post(self, request, response, **kwargs):
         """
-        Check health of service
+        Save new car
         """
-        a = request.media
-
+        car = request.context.json
+        output = CarHandler.save_car(car)
         response.status = falcon.HTTP_200
-        response.media = a
+        response.media = output
