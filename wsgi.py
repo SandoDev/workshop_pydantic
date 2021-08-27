@@ -13,4 +13,4 @@ def main(fast: bool = True):
 
 
 if __name__ == '__main__':
-    main()
+    main(0)

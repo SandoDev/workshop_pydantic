@@ -1,7 +1,6 @@
 from enum import Enum
 from typing import Any, List, Dict, Optional, Type
 from pydantic import BaseModel, Field, validator
-from pydantic.typing import AnnotatedTypeNames
 from .docs_fields import description_of_chasis
 from pydantic.color import Color
 
@@ -138,3 +137,8 @@ class CarResponseObj(ResponseSerializer):
     data: CarSerializer = Field(
         description="returns a car object"
     )
+
+
+class QuerySerializer(BaseModel):
+    id: Optional[str] = None
+    color: Optional[ColorEnum] = None
