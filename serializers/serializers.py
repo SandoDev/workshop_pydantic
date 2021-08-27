@@ -120,10 +120,10 @@ class CarSerializer(BaseModel):
 
 
 class ResponseSerializer(BaseModel):
-    status: bool
-    message: str = Field(
+    status: bool = Field(
         description="True if the expected response is False otherwise"
     )
+    message: str
     data: Any
 
 
