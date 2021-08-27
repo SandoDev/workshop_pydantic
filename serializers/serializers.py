@@ -1,6 +1,7 @@
 from enum import Enum
 from typing import Any, List, Dict, Optional, Type
 from pydantic import BaseModel, Field, validator
+from pydantic.typing import AnnotatedTypeNames
 from .docs_fields import description_of_chasis
 from pydantic.color import Color
 
@@ -119,9 +120,21 @@ class CarSerializer(BaseModel):
         }
 
 
-class ResponseSerializerCar(BaseModel):
+class ResponseSerializer(BaseModel):
     status: bool
-    message: str
+    message: str = Field(
+        description="True if the expected response is False otherwise"
+    )
+    data: Any
+
+
+class CarResponse(ResponseSerializer):
     data: List[CarSerializer] = Field(
         description="returns a list of cart objects"
+    )
+
+
+class CarResponseObj(ResponseSerializer):
+    data: CarSerializer = Field(
+        description="returns a car object"
     )
